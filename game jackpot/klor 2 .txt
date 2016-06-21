@@ -1,0 +1,10 @@
+.Base {
+  border-radius: 50%;
+  background-color: rgb(13, 25, 32);
+  position: absolute;
+  left: 1062px;
+  top: 103px;
+  width: 324px;
+  height: 324px;
+  z-index: 452;
+}

@@ -1,0 +1,11 @@
+._5 {
+  font-size: 35px;
+  font-family: "HelveticaNeue";
+  color: rgb(255, 255, 255);
+  line-height: 1.086;
+  text-shadow: 0px 0px 49px rgba(30, 125, 255, 0.004);
+  position: absolute;
+  left: 1162.964px;
+  top: 244.995px;
+  z-index: 453;
+}
