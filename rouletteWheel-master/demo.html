@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/lottery.css">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="jquery-ui.min.js"></script>
+        <script type="text/javascript" src="src/rouletteWheel.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                var itemsToShow = 14;//parseInt(4 + Math.random() * 10);
+                console.log(itemsToShow);
+                var items = {};
+                for (var i = 0; i < itemsToShow; i++) {
+                    items[i] = ""//'ITEM ' + (i + 1);
+                }
+                $('#canvas').rouletteWheel({
+                    items: items,
+                    selected: function (key, value) {
+                        alert('SELECTED : ' + key + ' => ' + value);
+                    },
+                    spinText: 'You can spin 500 times with Your current balance'
+                });
+
+            });
+        </script>
+        <title></title>
+    </head>
+    <body>
+        <img id="arrow" src="../images/arrow_big.png" alt="arrow" style="display:none">
+        <canvas id="canvas" width="600" height="600"></canvas>	
+    </body>
+</html>

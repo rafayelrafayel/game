@@ -1,0 +1,14 @@
+.Base {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(68, 53, 121);
+  border-radius: 5px;
+  background-color: rgb(49, 44, 69);
+  box-shadow: 0px 0px 5px 0px rgba(81, 30, 157, 0.004);
+  position: absolute;
+  left: 302px;
+  top: 16px;
+  width: 339px;
+  height: 36px;
+  z-index: 596;
+}

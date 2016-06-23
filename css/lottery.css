@@ -1,9 +1,28 @@
+/*always*/
 body{
     background: #18171b;
 }
 hr {
     border-top: 1px solid #2C2930;
 }
+.white{
+    color:white !important;
+}
+.grey{
+    color:#696673 !important;
+}
+.orange{
+    color:#fc7323 !important;
+}
+.violet{
+    color:#856bbf !important;
+}
+.green{
+    color:#4cba36 !important;
+}
+
+/*lottery*/
+
 #lot_menu *{
     color:white;
 }
@@ -51,21 +70,7 @@ hr {
     margin-top: 9%;
     text-align:left;
 }
-.white{
-    color:white !important;
-}
-.grey{
-    color:#696673 !important;
-}
-.orange{
-    color:#fc7323 !important;
-}
-.violet{
-    color:#856bbf !important;
-}
-.green{
-    color:#4cba36 !important;
-}
+
 #enter_lottery{
     background: #00a2ff;
     padding:5px 70px;
@@ -73,8 +78,15 @@ hr {
     margin: 10px auto;
     display:inline-block;
 }
-
-
 #lot_footer{
     margin:30px auto;
+}
+
+/*spin*/
+#main_spin{
+    width:400px;
+    height:400px;
+    background: red;
+    margin:40px auto;
+    
 }

@@ -1,0 +1,11 @@
+.Base {
+  background-image: -moz-linear-gradient( 90deg, rgb(65,150,65) 0%, rgb(99,204,99) 100%);
+  background-image: -webkit-linear-gradient( 90deg, rgb(65,150,65) 0%, rgb(99,204,99) 100%);
+  background-image: -ms-linear-gradient( 90deg, rgb(65,150,65) 0%, rgb(99,204,99) 100%);
+  position: absolute;
+  left: 0px;
+  top: 867px;
+  width: 125px;
+  height: 92px;
+  z-index: 545;
+}
