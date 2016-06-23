@@ -13,7 +13,8 @@ import { HeroService } from  '../../app/services/HeroSvc';
     template: `\n\
      <h1 class="title">Component Router</h1>
     <nav>
-      <a [routerLink]="['/login']">Login</a>
+      <a [routerLink]="['/login']">Login</a>\n\
+      <a [routerLink]="['/lottery']">Lottery</a>
     </nav>
     <router-outlet></router-outlet>
   `,

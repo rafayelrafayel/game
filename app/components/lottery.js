@@ -28,7 +28,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 LotteryComponent = __decorate([
                     core_1.Component({
                         selector: 'lottery-selector',
-                        templateUrl: '../../app/views/index/login.html'
+                        templateUrl: '../../app/views/lottery/index.html'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], LotteryComponent);

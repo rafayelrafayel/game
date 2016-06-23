@@ -40,7 +40,7 @@ System.register(['@angular/core', '@angular/router', '../../app/services/HeroSvc
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n     <h1 class=\"title\">Component Router</h1>\n    <nav>\n      <a [routerLink]=\"['/login']\">Login</a>\n    </nav>\n    <router-outlet></router-outlet>\n  ",
+                        template: "\n     <h1 class=\"title\">Component Router</h1>\n    <nav>\n      <a [routerLink]=\"['/login']\">Login</a>\n      <a [routerLink]=\"['/lottery']\">Lottery</a>\n    </nav>\n    <router-outlet></router-outlet>\n  ",
                         directives: [router_1.ROUTER_DIRECTIVES],
                         providers: [HeroSvc_1.HeroService]
                     }), 

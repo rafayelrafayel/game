@@ -6,8 +6,8 @@ import { Http, Headers, Response } from '@angular/http';
 //import localStorage from 'localStorage';
 
 @Injectable()
-export class UserService {
-    private loggedIn = false;
+export class AuthenticationSvc {
+    private isLoggedIn = false;
 
     constructor(private http: Http) {
         // this.loggedIn = !!localStorage.getItem('auth_token');
@@ -29,11 +29,11 @@ export class UserService {
 
     public logout() {
         //  localStorage.removeItem('auth_token');
-        this.loggedIn = false;
+        this.isLoggedIn = true;
     }
 
-    public isLoggedIn() {
-        return this.loggedIn;
+    public _isLoggedIn() {
+        return this.isLoggedIn;
     }
 
     private success(res: Response) {
