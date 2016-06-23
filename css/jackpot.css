@@ -42,17 +42,52 @@ div.middle {
 	margin-bottom: 80px;
 }
 
-div.winner .circle-winner {
+div.players-container {
+	height: 250px;
+	width: 200px;
+	position: absolute;
+	left: calc(50% - 100px);
+	top: 0;
+	z-index: 10;
+	overflow: hidden;
+}
+div.select-winner {
+	position: absolute;
+	left: 25px;
+	top: 0;
+}
+div[class^="player-"] {
+	margin: 0px auto;
+	height: 90px;
+	width: 150px;
+	text-align: center;
+}
+div.winner {
+	display: none;
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	background: rgba(24, 23, 27, 0.95);
+}
+
+.circle-winner {
 	border-style: solid;
 	border-width: 2px;
 	border-radius: 50%;
-	background-color: rgb(13, 25, 32);
+	/* background-color: rgba(13, 25, 32, 1); */
+	background-repeat: no-repeat;
+	background-position: center;
 	width: 90px;
 	height: 90px;
-	box-shadow: 0px 0px 30px 30px rgba(13,25,32, 0.6);
-	background: url(/images/man-1.png) no-repeat center;
-	margin: 20px auto;
-	margin-bottom: 30px;
+	-webkit-box-shadow: inset 0px 0px 21px 25px rgba(13,25,32, 1), 0px 0px 30px 30px rgba(13,25,32, 0.6);
+	-moz-box-shadow: inset 0px 0px 21px 25px rgba(13,25,32, 1), 0px 0px 30px 30px rgba(13,25,32, 0.6);
+	box-shadow: inset 0px 0px 21px 25px rgba(13,25,32, 1), 0px 0px 30px 30px rgba(13,25,32, 0.6);
+	margin: 0px auto;
+	margin-top: 70px;
+	position: relative;
+	z-index: 100;
 }
 .circle-total {
 	position: relative;
@@ -64,6 +99,8 @@ div.winner .circle-winner {
 	background-color: rgb(13, 25, 32);
 	width: 120px;
 	height: 120px;
+	-webkit-box-shadow: 0px 0px 30px 30px rgba(13,25,32, 0.6);
+	-moz-box-shadow: 0px 0px 30px 30px rgba(13,25,32, 0.6);
 	box-shadow: 0px 0px 30px 30px rgba(13,25,32, 0.6);
 	margin: 0 auto;
 	margin-bottom: 20px;
