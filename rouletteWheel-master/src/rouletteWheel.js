@@ -40,11 +40,11 @@ function getColor(index, total) {
 
 $.widget('javobyte.rouletteWheel', {
     options: {
-        pointer: $('<img>').attr('src', 'img/pointer.png')[0],
+        pointer: $('<img>').attr('src', '../images/arrow_big.png')[0],
         selected: function () {
         },
         spinText: 'SPIN',
-        colors: [],
+        colors: []
     },
     _options: {
         is_rotating: false,
@@ -68,8 +68,7 @@ $.widget('javobyte.rouletteWheel', {
                 var colors = [];
                 for (var i = 0; i < this._options.itemsToDraw; i++) {
                     var color = getColor(i, this._options.itemsToDraw);
-                    //colors.push('rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')');
-                    colors.push("rgba(255, 255, 255,0)");
+                    colors.push('rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')');
                 }
                 this.options.colors = colors;
             }
@@ -79,12 +78,11 @@ $.widget('javobyte.rouletteWheel', {
             h = this.element.height();
 
             var base = Math.min(w, h);
-            console.log(base);
             this._options.centerX = w / 2;
             this._options.centerY = h / 2;
 
-            this._options.radius = base * 0.8 / 2;// big center spin
-            this._options.innerRadius = base * 0.6 / 2; // little center spin
+            this._options.radius = base * 0.7 / 2;// big center spin
+            this._options.innerRadius = base * 0.5 / 2; // little center spin
             this._options.textRadius = (this._options.radius + this._options.innerRadius) / 2;
             this._options.arc = 2 * Math.PI / this._options.itemsToDraw;
 
@@ -106,7 +104,7 @@ $.widget('javobyte.rouletteWheel', {
 
                 var centerX = widget._options.centerX;
                 var centerY = widget._options.centerY;
-
+                
                 if (Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2) < Math.pow(widget._options.innerRadius, 2)) {
                     if (!widget.is_rotating()) {
                         widget.spin();
@@ -135,9 +133,23 @@ $.widget('javobyte.rouletteWheel', {
         var cy = this._options.centerY;
 
 
-        ctx.clearRect(0, 0, 600, 600);
+        ctx.clearRect(0, 0, 800, 800);
 
         ctx.strokeStyle = "#0090E1";
+        /*custom*/
+        ctx.shadowColor = 'rgba(0, 42, 255, 0.004)';
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
+        ctx.shadowBlur = 30;
+
+        ctx.lineWidth = 3;
+        ctx.arc(cx, cy, innerRadius + 70, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.restore();
+
+        
+
+        /*custom*/
         ctx.lineWidth = 2;
 
         ctx.font = 'bold 14px Helvetica, Arial';
@@ -165,7 +177,7 @@ $.widget('javobyte.rouletteWheel', {
 
         ctx.strokeStyle = shadowColor;//shadow
         ctx.lineWidth = 10;
-        ctx.shadowBlur = 15;
+        ctx.shadowBlur = 0;
         ctx.shadowColor = shadowColor;
 
         ctx.shadowOffsetX = 0;
@@ -177,13 +189,17 @@ $.widget('javobyte.rouletteWheel', {
 
         ctx.restore();
 
-        /*custom*/
-        ctx.shadowColor = '#0090E1';
-        ctx.shadowOffsetX = 0;
-        ctx.shadowOffsetY = 0;
-        ctx.shadowBlur = 30;
-
-        /*custom*/
+/*custom*/
+        ctx.fillStyle  = "#030512";
+        ctx.strokeStyle = "#00A3FF";
+        ctx.moveTo(395, 202);
+        ctx.lineTo(400, 190);
+        ctx.stroke();
+        ctx.fillStyle  = "#030512";
+        ctx.lineTo(405, 202);
+        ctx.stroke();
+        ctx.fill();
+         /*custom*/
 
         for (var key in this.options.items) {
             var angle = currentAngle + i * arc;
@@ -191,8 +207,8 @@ $.widget('javobyte.rouletteWheel', {
             ctx.fillStyle = this.options.colors[i];
 
             ctx.beginPath();
-            ctx.arc(cx, cy, radius, angle, angle + arc, false);
-//            ctx.arc(cx, cy, innerRadius, angle + arc, angle, true); ////////lines between elements
+            //ctx.arc(cx, cy, radius, angle, angle + arc, false);   ////big circle
+            //ctx.arc(cx, cy, innerRadius, angle + arc, angle, true); ////////lines between elements
             ctx.stroke();
             ctx.fill();
 
@@ -219,10 +235,10 @@ $.widget('javobyte.rouletteWheel', {
 
             ctx.restore();
             i++;
-        }
+        }       
         ctx.fillStyle = 'white';
-
-        ctx.drawImage(this.options.pointer, cx - 25, cy - radius - 45, 50, 50); ///pointer
+        
+        //ctx.drawImage(this.options.pointer, cx - 25, cy - radius - 45, 50, 50); ///pointer
 
         if (!this.is_rotating()) {
             ctx.save();
@@ -233,8 +249,8 @@ $.widget('javobyte.rouletteWheel', {
             /*custom*/
             ctx.save();
             ctx.shadowBlur = 0;
-            ctx.fillStyle = "red";
-            ctx.fillRect(cx / 2, cy + 20, 300, 40);
+            ctx.fillStyle = "#00A3FF";
+            ctx.fillRect(cx / 1.5, cy + 20, 275, 40);
             ctx.restore();
 
             ctx.save();
@@ -246,14 +262,13 @@ $.widget('javobyte.rouletteWheel', {
             /*custom*/
         }
 
-
     },
     _rotate: function () {
         this._options.spinTime += 30;
         if (this._options.spinTime >= this._options.spinTimeTotal) {
             this.stop();
             return;
-        }
+        }        
         var spinAngle = this._options.spinAngleStart - easeOut(this._options.spinTime, 0, this._options.spinAngleStart, this._options.spinTimeTotal);
         this._options.currentAngle += (spinAngle * Math.PI / 180);
         this._draw();

@@ -1,0 +1,59 @@
+/*always*/
+body{
+    background: #111015;
+}
+hr {
+    border-top: 1px solid #2C2930;
+}
+.white{
+    color:white !important;
+}
+.grey{
+    color:#696673 !important;
+}
+.orange{
+    color:#fc7323 !important;
+}
+.violet{
+    color:#856bbf !important;
+}
+.green{
+    color:#4cba36 !important;
+}
+/*spin*/
+#canvas{
+    margin:20px auto;
+    display:block;
+}
+#spin_info{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+#win_modal{
+    background: rgba(0,0,0,0.65);
+}
+.win_text{
+    font-size:30px;
+    color:white;
+}
+.arrow_circle{
+    margin:10px auto;
+    display:inline-block;
+    padding:15px;
+    border-radius: 50%;
+    background-image: -moz-linear-gradient( 120deg, rgb(3,17,39) 0%, rgb(18,8,71) 100%);
+    background-image: -webkit-linear-gradient( 120deg, rgb(3,17,39) 0%, rgb(18,8,71) 100%);
+    background-image: -ms-linear-gradient( 120deg, rgb(3,17,39) 0%, rgb(18,8,71) 100%);
+    box-shadow: 0px 1px 13px 0px rgba(0, 42, 255, 0.004);  
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(0, 144, 255);
+    background-color: rgb(9, 13, 25);
+}
+
+.modal-content{
+    background: transparent;
+        margin-top: 270px;
+        box-shadow: none;
+}
+/*spin*/
