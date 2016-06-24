@@ -7,7 +7,7 @@ export const routes: RouterConfig = [
 
     { path: '', component: LoginComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'lottery', component: LotteryComponent },
+    { path: 'lottery', component: LotteryComponent, canActivate: [AuthGuard] },
 
 ];
 

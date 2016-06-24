@@ -3,37 +3,59 @@ import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import {apiUrl} from '../../app/constants/api-url';
 import { Http, Headers, Response } from '@angular/http';
+import {Router}    from '@angular/router';
 //import localStorage from 'localStorage';
 
 @Injectable()
 export class AuthenticationSvc {
-    private isLoggedIn = false;
 
-    constructor(private http: Http) {
+
+    constructor(private http: Http, private router: Router) {
         // this.loggedIn = !!localStorage.getItem('auth_token');
     }
 
-    public login(requestData: Object = {}): Observable<any> {
+    
+
+
+    public isLoggedIn(requestData: Object = {}): Observable<boolean> | boolean {
+        let router: Router = this.router;
+        let obs;
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
-        return this.http
-            .post(
-            apiUrl.login,
-            JSON.stringify(requestData),
-            { headers }
-            )
-            .map(this.success)
-            .catch(this.error);
+
+        try {
+            obs = this.http.post(apiUrl.login,
+                JSON.stringify(requestData),
+                { headers })
+                .map(result => result.json())
+                .map(resultJson => (resultJson && resultJson.success));
+
+        } catch (err) {
+            obs = Observable.of(false);
+        }
+
+        return obs
+            .map(success => {
+                // navigate to login page
+                if (!success)
+                    router.navigate(['/auth/login']);
+
+                return success;
+            });
     }
 
     public logout() {
         //  localStorage.removeItem('auth_token');
-        this.isLoggedIn = true;
+        //this.isLoggedIn = true;
     }
 
     public _isLoggedIn() {
-        return this.isLoggedIn;
+        return true;
+    }
+
+    public check() {
+        return Observable.of(this.isLoggedIn);
     }
 
     private success(res: Response) {

@@ -1,4 +1,4 @@
-System.register(['@angular/core', 'rxjs/Rx', '../../app/constants/api-url', '@angular/http'], function(exports_1, context_1) {
+System.register(['@angular/core', 'rxjs/Rx', '../../app/constants/api-url', '@angular/http', '@angular/router'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', 'rxjs/Rx', '../../app/constants/api-url', '@an
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Rx_1, api_url_1, http_1;
+    var core_1, Rx_1, api_url_1, http_1, router_1;
     var AuthenticationSvc;
     return {
         setters:[
@@ -25,30 +25,49 @@ System.register(['@angular/core', 'rxjs/Rx', '../../app/constants/api-url', '@an
             },
             function (http_1_1) {
                 http_1 = http_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             }],
         execute: function() {
             //import localStorage from 'localStorage';
             AuthenticationSvc = (function () {
-                function AuthenticationSvc(http) {
+                function AuthenticationSvc(http, router) {
                     this.http = http;
-                    this.isLoggedIn = false;
+                    this.router = router;
                     // this.loggedIn = !!localStorage.getItem('auth_token');
                 }
-                AuthenticationSvc.prototype.login = function (requestData) {
+                AuthenticationSvc.prototype.isLoggedIn = function (requestData) {
                     if (requestData === void 0) { requestData = {}; }
+                    var router = this.router;
+                    var obs;
                     var headers = new http_1.Headers();
                     headers.append('Content-Type', 'application/json');
-                    return this.http
-                        .post(api_url_1.apiUrl.login, JSON.stringify(requestData), { headers: headers })
-                        .map(this.success)
-                        .catch(this.error);
+                    try {
+                        obs = this.http.post(api_url_1.apiUrl.login, JSON.stringify(requestData), { headers: headers })
+                            .map(function (result) { return result.json(); })
+                            .map(function (resultJson) { return (resultJson && resultJson.success); });
+                    }
+                    catch (err) {
+                        obs = Rx_1.Observable.of(false);
+                    }
+                    return obs
+                        .map(function (success) {
+                        // navigate to login page
+                        if (!success)
+                            router.navigate(['/auth/login']);
+                        return success;
+                    });
                 };
                 AuthenticationSvc.prototype.logout = function () {
                     //  localStorage.removeItem('auth_token');
-                    this.isLoggedIn = true;
+                    //this.isLoggedIn = true;
                 };
                 AuthenticationSvc.prototype._isLoggedIn = function () {
-                    return this.isLoggedIn;
+                    return true;
+                };
+                AuthenticationSvc.prototype.check = function () {
+                    return Rx_1.Observable.of(this.isLoggedIn);
                 };
                 AuthenticationSvc.prototype.success = function (res) {
                     var body = res.json();
@@ -63,7 +82,7 @@ System.register(['@angular/core', 'rxjs/Rx', '../../app/constants/api-url', '@an
                 };
                 AuthenticationSvc = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [http_1.Http])
+                    __metadata('design:paramtypes', [http_1.Http, router_1.Router])
                 ], AuthenticationSvc);
                 return AuthenticationSvc;
             }());
