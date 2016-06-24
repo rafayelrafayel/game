@@ -20,16 +20,20 @@ $(document).ready(function() {
 				setTimeout(function() {
 					$("div.winner").show();
 					$("div.winner .circle-winner").css("background-image", "url("+el.children().eq(a+1).find("img").attr("src")+")");
-				}, 30*50*2+3000)
+					$("#enter-jackpot").prop('disabled', false);
+				}, 30*50*2+3500)
 			}
-			$("div.select-winner").animate({top: top}, duration);
+			$("div.select-winner").animate({top: top}, duration, 'easeOutExpo');
 			if (i!=30) {
 				$("div.select-winner").animate({top:0},duration)
 			}
 		}
 	}
-	$("#enter-jackpot").click(function() {
+	$("#enter-jackpot").click(function(e) {
+		$(this).prop('disabled', true);
+		e.preventDefault();
 		$("div.winner").hide();
+		$("div.circle-winner").show();
 		loop(duration, top);
 	})
 });

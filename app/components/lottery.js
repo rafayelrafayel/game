@@ -1,4 +1,4 @@
-System.register(['@angular/core'], function(exports_1, context_1) {
+System.register(['@angular/core', '../../app/helpers/route-guard'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,15 @@ System.register(['@angular/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, route_guard_1;
     var LotteryComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (route_guard_1_1) {
+                route_guard_1 = route_guard_1_1;
             }],
         execute: function() {
             LotteryComponent = (function () {
@@ -28,7 +31,8 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 LotteryComponent = __decorate([
                     core_1.Component({
                         selector: 'lottery-selector',
-                        templateUrl: '../../app/views/lottery/index.html'
+                        templateUrl: '../../app/views/lottery/index.html',
+                        providers: [route_guard_1.AuthGuard]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], LotteryComponent);

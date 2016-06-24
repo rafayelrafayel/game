@@ -29,13 +29,11 @@ System.register(['@angular/core', '@angular/router', '../../app/services/Authent
                     this.authService = authService;
                     this.router = router;
                 }
-                AuthGuard.prototype.canActivate = function (
-                    // Not using but worth knowing about
-                    next, state) {
+                AuthGuard.prototype.canActivate = function (next, state) {
                     if (this.authService._isLoggedIn()) {
                         return true;
                     }
-                    this.router.navigate(['/login']);
+                    this.router.navigate(['login']);
                     return false;
                 };
                 AuthGuard = __decorate([
