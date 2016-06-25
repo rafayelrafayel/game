@@ -73,6 +73,7 @@ div.winner {
 }
 
 .circle-winner {
+	visibility: hidden;
 	border-style: solid;
 	border-width: 2px;
 	border-radius: 50%;
@@ -89,6 +90,13 @@ div.winner {
 	position: relative;
 	z-index: 100;
 }
+
+div.winner > div.circle-winner {
+	-webkit-box-shadow: 0px 0px 30px 30px rgba(13,25,32, 0.6);
+	-moz-box-shadow: 0px 0px 30px 30px rgba(13,25,32, 0.6);
+	box-shadow: 0px 0px 30px 30px rgba(13,25,32, 0.6);
+}
+
 .circle-total {
 	position: relative;
 	border-style: solid;
@@ -216,6 +224,10 @@ div.bottom div.right {
 		padding-left: 0;
 		width: 70%;
 		margin: 0 auto;
+	}
+	div.players-container {
+		position: relative;
+		top: -160px;
 	}
 }
 
