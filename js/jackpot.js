@@ -18,7 +18,7 @@ $(document).ready(function() {
 				duration = 2000;
 				top = -step * a;
 				setTimeout(function() {
-					$("div.winner").fadeIn(200);
+					$("div.winner").fadeIn(300);
 					$("div.winner .circle-winner").css("background-image", "url("+el.children().eq(a+1).find("img").attr("src")+")");
 					$("#enter-jackpot").prop('disabled', false);
 				}, 30*50*2+3500)
