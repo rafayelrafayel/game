@@ -1,0 +1,161 @@
+<script type="text/javascript">
+    
+    $(document).ready(function() {
+	var h = $("div.select-winner").height();
+	var el = $("div.select-winner");
+	var duration = 7000;
+	var playes_count = el.children().length;
+	var step = el.children().height();
+	$("div.select-winner > *").clone().appendTo($("div.select-winner"));
+
+	var index = 0;
+	var duration = 50;
+	var top = -$("div.select-winner").height()+180;
+
+	function loop(duration, top) {
+		$("div.select-winner").css('top',top)
+		for (var i=0; i<=30; i++) {
+			if (i==30) {
+				var a = (Math.floor(Math.random() * (playes_count-1)) - 1) + playes_count;
+				duration = 2000;
+				top = -step * a;
+				setTimeout(function() {
+					$("div.winner").fadeIn(300);
+					$("div.winner .circle-winner").css("background-image", "url("+el.children().eq(a+1).find("img").attr("src")+")");
+					$("#enter-jackpot").prop('disabled', false);
+				}, 30*50*2+3500)
+			}
+			$("div.select-winner").animate({top: top}, duration, 'easeOutExpo');
+			if (i!=30) {
+				$("div.select-winner").animate({top:0},duration)
+			}
+		}
+	}
+	$("#enter-jackpot").click(function(e) {
+		$(this).prop('disabled', true);
+		e.preventDefault();
+		$("div.winner").hide();
+		$(".circle-winner").css("visibility","visible");
+		$("div.circle-winner").show();
+		loop(duration, top);
+	})
+});
+</script>
+<div id="main">
+    <div class="top container-content">
+        <div class="col-md-6 top-left">
+            <span>Lowstakes</span><i class="fa fa-question-circle-o fa-lg"></i>
+            <div>
+                <span>Current pot: 15M</span>
+                <span>5 more to go</span>
+            </div>
+        </div>
+        <div class="col-md-6 top-right">
+            <span>Highstakes</span><i class="fa fa-question-circle-o fa-lg"></i>
+            <div>
+                <span>Current pot: 155M</span>
+                <span>5 more to go</span>
+            </div>
+        </div>
+    </div>
+    <div class="center container-content">
+        <div class=" middle">
+            <div class="col-sm-6">
+                <div class="circle-winner"></div>
+                <div class="players-container">
+                    <div class="select-winner">
+                        <div class="player-0">
+                            <img src="/images/man-2.png">
+                        </div>
+                        <div class="player-1">
+                            <img src="/images/man-1.png">
+                        </div>
+                        <div class="player-2">
+                            <img src="/images/man-2.png">
+                        </div>
+                        <div class="player-3">
+                            <img src="/images/man-1.png">
+                        </div>
+                        <div class="player-4">
+                            <img src="/images/man-2.png">
+                        </div>
+                        <div class="player-5">
+                            <img src="/images/man-1.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="winner">
+                    <div class="circle-winner"></div>
+                    <div class="win-info">
+                        <p class="win-text">
+                            <span class="name">Bob</span>
+                            <span>won the pot of a total amount of:</span>
+                        </p>
+                        <span class="amount">15M</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-6">
+                    <div class="circle-total">
+                    </div>
+                    <span class="deposite">5</span>
+                    <p class="total text-center">Total Deposits</p>
+                </div>
+                <div class="col-sm-6">
+                    <div class="pot-info">
+                        <span>Fee: 150K</span><br>
+                        <span>Total Entries: 1500K</span>
+                        <p>Total Pot: 1350K</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 text-center">
+                    <button class="btn" id="enter-jackpot">Enter Jackpot</button>
+                </div>
+            </div>
+        </div>
+        <div class=" bottom">
+            <div class="col-md-6 left">
+                <div class="participants row">
+                    <p class="sub-title">Participants:</p>
+                    <div class="col-sm-6">
+                        <img src="/images/man-1.png" alt="user">
+                        <span class="user-info">Bob2 entered with <p>1500K</p></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <img src="/images/man-1.png" alt="user">
+                        <span class="user-info">Bob2 entered with <p>1500K</p></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <img src="/images/man-2.png" alt="user">
+                        <span class="user-info">Bob2 entered with <p>1500K</p></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <img src="/images/man-1.png" alt="user">
+                        <span class="user-info">Bob2 entered with <p>1500K</p></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <img src="/images/man-1.png" alt="user">
+                        <span class="user-info">Bob2 entered with <p>1500K</p></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <img src="/images/man-2.png" alt="user">
+                        <span class="user-info">Bob2 entered with <p>1500K</p></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 right">
+                <div class="prev-actions row">
+                    <p class="sub-title">Previous actions:</p>
+                    <div>Bob: <span>1500K</span></div>
+                    <div>Bob1: <span>150K</span></div>
+                    <div>Bob12: <span>1500K</span></div>
+                    <div>Bob123: <span>150K</span></div>
+                </div>
+                <div class="top-winner">
+                    Arist123 <span>won</span> the 25.5M jackpot
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

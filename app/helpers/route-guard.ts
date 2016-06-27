@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { AuthenticationSvc }         from  '../../app/services/AuthenticationSvc';
+
+
+import { StorageSvc } from '../../app/services/StorageSvc';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-    constructor(private authService: AuthenticationSvc, private router: Router) { }
+    constructor(private storage: StorageSvc, private router: Router) { }
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        if (this.authService._isLoggedIn()) {
+        if (this.storage.isNotEmpty()) {
             return true;
         }
 

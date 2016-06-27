@@ -45,8 +45,8 @@ System.register(['@angular/core', 'rxjs/Rx', '../../app/constants/api-url', '@an
                     headers.append('Content-Type', 'application/json');
                     try {
                         obs = this.http.post(api_url_1.apiUrl.login, JSON.stringify(requestData), { headers: headers })
-                            .map(function (result) { return result.json(); })
-                            .map(function (resultJson) { return (resultJson && resultJson.success); });
+                            .map(this.success)
+                            .catch(this.error);
                     }
                     catch (err) {
                         obs = Rx_1.Observable.of(false);

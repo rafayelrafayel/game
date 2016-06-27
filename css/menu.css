@@ -1,107 +1,108 @@
 body {
-	background: #111015;
+    background: #111015;
 }
 
 header, nav {
-	background: #23202b;
-	font-size: small;
-	font-weight: bold;
+    background: #23202b;
+    font-size: small;
+    font-weight: bold;
 }
 header {
-	border-bottom: 1px solid #4c495a;
-	min-width: 1170px;
+    border-bottom: 1px solid #4c495a;
+    min-width: 1170px;
+    position: relative;
 }
 
 .header-container {
-	padding: 0 35px;
-	height: 70px;
+    padding: 0 35px;
+    height: 70px;
 }
 
 .header-container > .header-right > div {
-	text-align: right;
-	float: left;
-	color: #b9b1d8;
-	padding: 26px 0;
+    text-align: right;
+    float: left;
+    color: #b9b1d8;
+    padding: 26px 0;
 }
 .header-container > .header-right > div > span {
-	color: #00c559;
+    color: #00c559;
 }
 .header-container > .header-right div.balance {
-	margin-right: 20px;
-	width: 140px;
-	background: url('/images/icon-1.png') no-repeat 0 50%;
+    margin-right: 20px;
+    width: 140px;
+    background: url('/images/icon-1.png') no-repeat 0 50%;
 }
 .header-container > .header-right div.tot-money {
-	width: 240px;
-	text-align: center;
-	background: url('/images/icon-2.png') no-repeat 0 50%;
-	border-right: 1px solid #4c495a;
+    width: 240px;
+    text-align: center;
+    background: url('/images/icon-2.png') no-repeat 0 50%;
+    border-right: 1px solid #4c495a;
 }
 .header-container > .header-right div.avatar {
-	position: relative;
-	text-align: center;
-	width: 90px;
-	padding: 13px 0;
+    position: relative;
+    text-align: center;
+    width: 90px;
+    padding: 13px 0;
 }
 .header-container > .header-right div.avatar a {
-	text-decoration: none;
-	color: #6f6a7f;
-	font-size: 22px;
+    text-decoration: none;
+    color: #6f6a7f;
+    font-size: 22px;
 }
 .header-container > .header-right div.avatar a i {
-	position: absolute;
-	top: 28px;
-	right: 0px;
+    position: absolute;
+    top: 28px;
+    right: 0px;
 }
 
 .header-container div.header-left img {
-	padding: 24px 0;
+       padding-top: 24px;
 }
 div.header-left div.last-winner {
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(68, 53, 121);
-	border-radius: 5px;
-	background-color: rgb(49, 44, 69);
-	box-shadow: 0px 0px 5px 0px rgba(81, 30, 157, 1);
-	position: absolute;
-	left: 302px;
-	top: 16px;
-	width: 335px;
-	white-space: nowrap;
-	overflow: hidden;
-	height: 38px;
-	padding: 9px 17px;
-	color: #8d69c0;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(68, 53, 121);
+    border-radius: 5px;
+    background-color: rgb(49, 44, 69);
+    box-shadow: 0px 0px 5px 0px rgba(81, 30, 157, 1);
+    position: absolute;
+    left: 302px;
+    top: 16px;
+/*    width: 355px;*/
+    white-space: nowrap;
+    overflow: hidden;
+    height: 38px;
+    padding: 9px 17px;
+    color: #8d69c0;
 }
 div.header-left div.last-winner span {
-	color: #c8afe8;
+    color: #c8afe8;
 }
 
 nav {
-	position: absolute;
-	width: 250px;
-	height: calc(100% - 71px);
-	min-height: 550px;
+    position: absolute;
+    width: 14%;
+    height: calc(100% - 71px);
+    min-height: 100%;
 }
 nav div.navbar {
-	padding: 32px 0px;
-	margin-bottom: 0;
+    padding: 32px 0px;
+    margin-bottom: 0;
 }
 nav div.navbar p {
-	color: #6c6674;
-	padding: 6px 0px;
-	margin: 0px 38px;
-	margin-bottom: 10px;
-	border-bottom: 1px solid #322f3a;
+    color: #6c6674;
+    padding: 6px 0px;
+    margin: 0px 38px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #322f3a;
 }
 div.games {
-	margin-bottom: 40px;
+    margin-bottom: 40px;
 }
 div.games > .nav > li > a, .profil-details > .nav > li > a {
-	padding: 4px 38px 13px;
-	color: #bbbbbc;
-	font-size: 15px;
+    padding: 4px 38px 13px;
+    color: #bbbbbc;
+    font-size: 15px;
 }
 div.games > .nav > li > a:hover,
 div.games > .nav > li > a:active,
@@ -109,109 +110,110 @@ div.games > .nav > li > a:focus,
 div.profil-details > .nav > li > a:hover,
 div.profil-details > .nav > li > a:active,
 div.profil-details > .nav > li > a:focus {
-	background: transparent;
-	color: #fc7323;
+    background: transparent;
+    color: #fc7323;
 }
 
 
 
 .games > .nav > li > a > span {
-	border-radius: 3px;
-	background-image: -moz-linear-gradient( 90deg, rgb(255,84,0) 0%, rgb(255,115,2) 100%);
-	background-image: -webkit-linear-gradient( 90deg, rgb(255,84,0) 0%, rgb(255,115,2) 100%);
-	background-image: -ms-linear-gradient( 90deg, rgb(255,84,0) 0%, rgb(255,115,2) 100%);
-	width: 50px;
-	height: 21px;
-	text-transform: uppercase;
-	font-size: 13px;
-	color: #fff;
-	padding: 3px 5px;
-	margin-left: 3px;
-	display: none;
+    border-radius: 3px;
+    background-image: -moz-linear-gradient( 90deg, rgb(255,84,0) 0%, rgb(255,115,2) 100%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(255,84,0) 0%, rgb(255,115,2) 100%);
+    background-image: -ms-linear-gradient( 90deg, rgb(255,84,0) 0%, rgb(255,115,2) 100%);
+    width: 50px;
+    height: 21px;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #fff;
+    padding: 3px 5px;
+    margin-left: 3px;
+    display: none;
 }
 .games > .nav > li > a > span.active {
-	display: inline;
+    display: inline;
 }
 
 .profil-details > .nav > li > a.active {
-	color: #fc7323;
+    color: #fc7323;
 }
 
 #deposit {
-	background-image: -moz-linear-gradient( 90deg, rgb(65,150,65) 0%, rgb(99,204,99) 100%);
-	background-image: -webkit-linear-gradient( 90deg, rgb(65,150,65) 0%, rgb(99,204,99) 100%);
-	background-image: -ms-linear-gradient( 90deg, rgb(65,150,65) 0%, rgb(99,204,99) 100%);
-	width: 125px;
-	height: 92px;
-	padding: 0;
+    background-image: -moz-linear-gradient( 90deg, rgb(65,150,65) 0%, rgb(99,204,99) 100%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(65,150,65) 0%, rgb(99,204,99) 100%);
+    background-image: -ms-linear-gradient( 90deg, rgb(65,150,65) 0%, rgb(99,204,99) 100%);
+/*    width: 125px;*/
+    height: 92px;
+    padding: 0;
 }
 #deposit > a, #withdraw > a {
-	width: 100%;
-	height: 100%;
-	display: block;
-	padding: 20px 50px;
-	font-size: 16px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 20px 50px;
+    font-size: 16px;
 }
 #deposit > a > i {
-	width: 20px;
-	height: 22px;
-	background-position: -5px -37px;
-	display: block;
-	background-repeat: no-repeat;
-	background-image: url('/images/icon-deposit.png');
+    width: 20px;
+    height: 22px;
+    background-position: -5px -37px;
+    display: block;
+    background-repeat: no-repeat;
+    background-image: url('/images/icon-deposit.png');
 }
 #deposit > a > span, #withdraw > a > span {
-	color: rgba(255, 255, 255, 0.3);
-	position: absolute;
-	bottom: 20px;
-	left: 30px;
+    color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
 }
 #deposit > a:focus > i {
-	background-position: -5px -5px;
+    background-position: -5px -5px;
 }
 #deposit > a:focus > span, #withdraw > a:focus > span {
-	color: #fff;
+    color: #fff;
 }
 #deposit > a:focus {
-	outline: none;
-	background-color: #01b84e;
-	-webkit-box-shadow: 0px 0px 30px 0px #01B84E;
-	-moz-box-shadow: 0px 0px 30px 0px #01B84E;
-	-ms-box-shadow: 0px 0px 30px 0px #01B84E;
-	box-shadow: 0px 0px 30px 0px #01B84E;
+    outline: none;
+    background-color: #01b84e;
+    -webkit-box-shadow: 0px 0px 30px 0px #01B84E;
+    -moz-box-shadow: 0px 0px 30px 0px #01B84E;
+    -ms-box-shadow: 0px 0px 30px 0px #01B84E;
+    box-shadow: 0px 0px 30px 0px #01B84E;
 }
 #withdraw {
-	background-image: -moz-linear-gradient( 90deg, rgb(79,43,217) 0%, rgb(116,45,247) 100%);
-	background-image: -webkit-linear-gradient( 90deg, rgb(79,43,217) 0%, rgb(116,45,247) 100%);
-	background-image: -ms-linear-gradient( 90deg, rgb(79,43,217) 0%, rgb(116,45,247) 100%);
-	width: 125px;
-	height: 92px;
-	padding: 0;
+    background-image: -moz-linear-gradient( 90deg, rgb(79,43,217) 0%, rgb(116,45,247) 100%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(79,43,217) 0%, rgb(116,45,247) 100%);
+    background-image: -ms-linear-gradient( 90deg, rgb(79,43,217) 0%, rgb(116,45,247) 100%);
+/*    width: 125px;*/
+    height: 92px;
+    padding: 0;
 }
 #withdraw > a > span {
-	left: 25px;
+    left: 25px;
 }
 #withdraw > a > i {
-	width: 25px;
-	height: 25px;
-	display: block;
-	background-repeat: no-repeat;
-	background-position: -5px -40px;
-	background-image: url('/images/icon-withdraw.png');
+    width: 25px;
+    height: 25px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: -5px -40px;
+    background-image: url('/images/icon-withdraw.png');
 }
 #withdraw > a:focus > i {
-	background-position: -5px -5px;
+    background-position: -5px -5px;
 }
 #withdraw > a:focus {
-	outline: none;
-	background-color: #6800fe;
-	-webkit-box-shadow: 0px 0px 30px 0px #6800fe;
-	-moz-box-shadow: 0px 0px 30px 0px #6800fe;
-	-ms-box-shadow: 0px 0px 30px 0px #6800fe;
-	box-shadow: 0px 0px 30px 0px #6800fe;
+    outline: none;
+    background-color: #6800fe;
+    -webkit-box-shadow: 0px 0px 30px 0px #6800fe;
+    -moz-box-shadow: 0px 0px 30px 0px #6800fe;
+    -ms-box-shadow: 0px 0px 30px 0px #6800fe;
+    box-shadow: 0px 0px 30px 0px #6800fe;
 }
 
 .nav-footer {
-	position: absolute;
-	bottom: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%
 }

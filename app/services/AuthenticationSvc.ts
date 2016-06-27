@@ -28,8 +28,8 @@ export class AuthenticationSvc {
             obs = this.http.post(apiUrl.login,
                 JSON.stringify(requestData),
                 { headers })
-                .map(result => result.json())
-                .map(resultJson => (resultJson && resultJson.success));
+                .map(this.success)
+                .catch(this.error);
 
         } catch (err) {
             obs = Observable.of(false);

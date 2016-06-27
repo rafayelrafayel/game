@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', '../../app/services/AuthenticationSvc'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../../app/services/StorageSvc'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', '../../app/services/Authent
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, AuthenticationSvc_1;
+    var core_1, router_1, StorageSvc_1;
     var AuthGuard;
     return {
         setters:[
@@ -20,17 +20,17 @@ System.register(['@angular/core', '@angular/router', '../../app/services/Authent
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (AuthenticationSvc_1_1) {
-                AuthenticationSvc_1 = AuthenticationSvc_1_1;
+            function (StorageSvc_1_1) {
+                StorageSvc_1 = StorageSvc_1_1;
             }],
         execute: function() {
             AuthGuard = (function () {
-                function AuthGuard(authService, router) {
-                    this.authService = authService;
+                function AuthGuard(storage, router) {
+                    this.storage = storage;
                     this.router = router;
                 }
                 AuthGuard.prototype.canActivate = function (next, state) {
-                    if (this.authService._isLoggedIn()) {
+                    if (this.storage.isNotEmpty()) {
                         return true;
                     }
                     this.router.navigate(['login']);
@@ -38,7 +38,7 @@ System.register(['@angular/core', '@angular/router', '../../app/services/Authent
                 };
                 AuthGuard = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [AuthenticationSvc_1.AuthenticationSvc, router_1.Router])
+                    __metadata('design:paramtypes', [StorageSvc_1.StorageSvc, router_1.Router])
                 ], AuthGuard);
                 return AuthGuard;
             }());

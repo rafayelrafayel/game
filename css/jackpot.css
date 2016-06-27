@@ -1,242 +1,244 @@
 body {
-	background: #18171b;
+    background: #18171b;
 }
 #main {
-	width: 100%;
+    width: 100%;
 }
 
 div.container {
-	min-width: 390px;
+    min-width: 390px;
 }
 div.top .top-left {
-	border-bottom: 2px solid #fe6c01;
-	background: #383641;
+    border-bottom: 2px solid #fe6c01;
+    background: #383641;
 }
 div.top .top-right {
-	background: #25242e;
+    background: #25242e;
 }
 div.top span {
-	color: #fff;
+    color: #fff;
 }
 div.top span:first-child {
-	display: inline-block;
-	padding: 15px 10px 15px 30px;
+    display: inline-block;
+    padding: 15px 10px 15px 30px;
 }
 div.top div:nth-child(3) {
-	display: inline-block;
-	margin-right: 30px;
-	float: right;
+    display: inline-block;
+    margin-right: 30px;
+    float: right;
 }
 div.top div:nth-child(3) span:last-child {
-	background: #606870;
-	padding: 4px 10px;
-	border-radius: 4px;
+    background: #606870;
+    padding: 4px 10px;
+    border-radius: 4px;
 }
 div.top i {
-	font-size: 25px;
-	color: #6a6870;
+    font-size: 25px;
+    color: #6a6870;
 }
 
 div.middle {
-	margin-top: 80px;
-	margin-bottom: 80px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    float: left;
+    width: 100%;
 }
 
 div.players-container {
-	height: 250px;
-	width: 200px;
-	position: absolute;
-	left: calc(50% - 100px);
-	top: 0;
-	z-index: 10;
-	overflow: hidden;
+    height: 250px;
+    width: 200px;
+    position: absolute;
+    left: calc(50% - 100px);
+    top: 0;
+    z-index: 10;
+    overflow: hidden;
 }
 div.select-winner {
-	position: absolute;
-	left: 25px;
-	top: 0;
+    position: absolute;
+    left: 25px;
+    top: 0;
 }
 div[class^="player-"] {
-	margin: 0px auto;
-	height: 90px;
-	width: 150px;
-	text-align: center;
+    margin: 0px auto;
+    height: 90px;
+    width: 150px;
+    text-align: center;
 }
 div.winner {
-	display: none;
-	position: absolute;
-	width: 100%;
-	top: -50px;
-	height: 310px;
-	left: 0;
-	z-index: 1000;
-	background: rgba(24, 23, 27, 0.95);
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: -80px;
+   height: 387px;
+    left: 0;
+    z-index: 1000;
+    background: rgba(24, 23, 27, 0.95);
 }
 
 .circle-winner {
-	visibility: hidden;
-	border-style: solid;
-	border-width: 2px;
-	border-radius: 50%;
-	/* background-color: rgba(13, 25, 32, 1); */
-	background-repeat: no-repeat;
-	background-position: center;
-	width: 90px;
-	height: 90px;
-	-webkit-box-shadow: inset 0px 0px 21px 25px rgba(13,25,32, 1), 0px 0px 30px 30px rgba(13,25,32, 0.6);
-	-moz-box-shadow: inset 0px 0px 21px 25px rgba(13,25,32, 1), 0px 0px 30px 30px rgba(13,25,32, 0.6);
-	box-shadow: inset 0px 0px 21px 25px rgba(13,25,32, 1), 0px 0px 30px 30px rgba(13,25,32, 0.6);
-	margin: 0px auto;
-	margin-top: 70px;
-	position: relative;
-	z-index: 100;
+    visibility: hidden;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 50%;
+    /* background-color: rgba(13, 25, 32, 1); */
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 90px;
+    height: 90px;
+    -webkit-box-shadow: inset 0px 0px 21px 25px rgba(13,25,32, 1), 0px 0px 30px 30px rgba(13,25,32, 0.6);
+    -moz-box-shadow: inset 0px 0px 21px 25px rgba(13,25,32, 1), 0px 0px 30px 30px rgba(13,25,32, 0.6);
+    box-shadow: inset 0px 0px 21px 25px rgba(13,25,32, 1), 0px 0px 30px 30px rgba(13,25,32, 0.6);
+    margin: 0px auto;
+    margin-top: 70px;
+    position: relative;
+    z-index: 100;
 }
 
 div.winner > div.circle-winner {
-	-webkit-box-shadow: 0px 0px 30px 30px rgba(13,25,32, 0.6);
-	-moz-box-shadow: 0px 0px 30px 30px rgba(13,25,32, 0.6);
-	box-shadow: 0px 0px 30px 30px rgba(13,25,32, 0.6);
+    -webkit-box-shadow: 0px 0px 30px 30px rgba(13,25,32, 0.6);
+    -moz-box-shadow: 0px 0px 30px 30px rgba(13,25,32, 0.6);
+    box-shadow: 0px 0px 30px 30px rgba(13,25,32, 0.6);
 }
 
 .circle-total {
-	position: relative;
-	border-style: solid;
-	border-width: 3px;
-	border-top-color: rgb(254, 174,0);
-	border-right-color: rgb(254, 174,0);
-	border-radius: 50%;
-	background-color: rgb(13, 25, 32);
-	width: 120px;
-	height: 120px;
-	-webkit-box-shadow: 0px 0px 30px 30px rgba(13,25,32, 0.6);
-	-moz-box-shadow: 0px 0px 30px 30px rgba(13,25,32, 0.6);
-	box-shadow: 0px 0px 30px 30px rgba(13,25,32, 0.6);
-	margin: 0 auto;
-	margin-bottom: 20px;
+    position: relative;
+    border-style: solid;
+    border-width: 3px;
+    border-top-color: rgb(254, 174,0);
+    border-right-color: rgb(254, 174,0);
+    border-radius: 50%;
+    background-color: rgb(13, 25, 32);
+    width: 120px;
+    height: 120px;
+    -webkit-box-shadow: 0px 0px 30px 30px rgba(13,25,32, 0.6);
+    -moz-box-shadow: 0px 0px 30px 30px rgba(13,25,32, 0.6);
+    box-shadow: 0px 0px 30px 30px rgba(13,25,32, 0.6);
+    margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 span.deposite {
-	font-size: 35px;
-	color: rgb(255, 255, 255);
-	line-height: 1.086;
-	text-shadow: 0px 0px 49px rgb(30, 125, 255);
-	position: absolute;
-	left: calc(50% - 8.25px);
-	top: 40px;
-	z-index: 453;
+    font-size: 35px;
+    color: rgb(255, 255, 255);
+    line-height: 1.086;
+    text-shadow: 0px 0px 49px rgb(30, 125, 255);
+    position: absolute;
+    left: calc(50% - 8.25px);
+    top: 40px;
+    z-index: 453;
 }
 
 div.win-info span {
-	color: #fff;
-	text-align: center;
-	font-size: 16px;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
 }
 p.win-text {
-	text-align: center;
+    text-align: center;
 }
 div.win-info span.name {
-	color: #00a2ff;
+    color: #00a2ff;
 }
 div.win-info span.amount {
-	color: #fe6c01;
-	display: block;
-	font-size: 48px;
+    color: #fe6c01;
+    display: block;
+    font-size: 48px;
 }
 
 p.total {
-	font-size: 16px;
-	color: #c1c1c1;
-	margin-bottom: 30px;
+    font-size: 16px;
+    color: #c1c1c1;
+    margin-bottom: 30px;
 }
 div.pot-info {
-	margin-top: 20px;
+    margin-top: 20px;
 }
 div.pot-info span {
-	color: #696673;
+    color: #696673;
 }
 div.pot-info p {
-	margin-top: 15px;
-	color: #fff;
-	font-size: 18px;
+    margin-top: 15px;
+    color: #fff;
+    font-size: 18px;
 }
 #enter-jackpot {
-	max-width: 380px;
-	width: 80%;
-	min-width: 200px;
-	background: #00a2ff;
-	color: #fff;
+    max-width: 380px;
+    width: 80%;
+    min-width: 200px;
+    background: #00a2ff;
+    color: #fff;
 }
 
 div.participants, div.prev-actions {
-	margin: 20px 0px 0px 25px;
+    margin: 20px 0px 0px 25px;
 }
 div.participants p.sub-title, div.participants p.sub-title {
-	margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 div.participants > div {
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 div.participants p {
-	color: #696673;
+    color: #696673;
 }
 div.participants span.user-info {
-	color: #fff;
-	position: absolute;
-	top: 0px;
-	left: 80px;
+    color: #fff;
+    position: absolute;
+    top: 0px;
+    left: 80px;
 }
 div.participants span.user-info p {
-	color: #fe6c01;
+    color: #fe6c01;
 }
 
 div.prev-actions {
-	border-bottom: 1px solid #232126;
+    border-bottom: 1px solid #232126;
 }
 div.prev-actions > div {
-	margin: 10px 0;
-	color: #fff;
+    margin: 10px 0;
+    color: #fff;
 }
 div.prev-actions > div > span {
-	color: #00a2ff;
+    color: #00a2ff;
 }
 div.top-winner {
-	margin: 10px 25px;
-	color: #00a2ff;
+    margin: 10px 25px;
+    color: #00a2ff;
 }
 div.top-winner span {
-	color: #fff;
+    color: #fff;
 }
 
 div.bottom div.left {
-	height: 100%;
-	border-right: 1px solid #232126;
-	border-top: 1px solid #232126;
+    height: calc(100% - 510px);
+    border-right: 1px solid #232126;
+    border-top: 1px solid #232126;
 }
 
 div.bottom div.right {
-	border-top: 1px solid #232126;
+    border-top: 1px solid #232126;
 }
 
 @media all and (max-width: 768px) {
-	.pot-info {
-		text-align: center;
-	}
-	div.participants, div.prev-actions, div.top-winner {
-		padding-left: 0;
-		width: 70%;
-		margin: 0 auto;
-	}
-	div.players-container {
-		position: relative;
-		top: -160px;
-	}
+    .pot-info {
+        text-align: center;
+    }
+    div.participants, div.prev-actions, div.top-winner {
+        padding-left: 0;
+        width: 70%;
+        margin: 0 auto;
+    }
+    div.players-container {
+        position: relative;
+        top: -160px;
+    }
 }
 
 @media all and (max-width: 498px) {
-	div.top span:first-child {
-		padding: 15px 5px 15px 0px;
-	}
-	div.top div:nth-child(3) {
-		margin:0;
-	}
+    div.top span:first-child {
+        padding: 15px 5px 15px 0px;
+    }
+    div.top div:nth-child(3) {
+        margin:0;
+    }
 }
