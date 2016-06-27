@@ -1,7 +1,3 @@
-body {
-    background: #111015;
-}
-
 header, nav {
     background: #23202b;
     font-size: small;
@@ -68,7 +64,6 @@ div.header-left div.last-winner {
     position: absolute;
     left: 302px;
     top: 16px;
-/*    width: 355px;*/
     white-space: nowrap;
     overflow: hidden;
     height: 38px;
@@ -80,10 +75,11 @@ div.header-left div.last-winner span {
 }
 
 nav {
-    position: absolute;
-    width: 14%;
-    height: calc(100% - 71px);
-    min-height: 100%;
+    position: relative;
+    width: 250px;
+    height: calc(100vh - 71px);
+    float: left;
+    min-height: 550px;
 }
 nav div.navbar {
     padding: 32px 0px;

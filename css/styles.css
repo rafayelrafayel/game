@@ -1,8 +1,18 @@
+body {
+    background: #18171b;
+    min-width: 1289px;
+    min-height: 650px;
+    font-size: small;
+    font-weight: bold;
+}
 .container-content{
-    width: 86%;
-    float: right;
+    width: 100%;
+    overflow: auto;
 }
 .nav-class{
-    width: 14%;
-    float: left;
+}
+#main {
+    width: calc(100% - 250px);
+    float: right;
+    padding-top: 60px;
 }

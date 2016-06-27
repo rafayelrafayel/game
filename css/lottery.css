@@ -26,9 +26,13 @@ hr {
 #lot_menu *{
     color:white;
 }
+#lot_menu > .menu {
+    padding-left: 10px;
+    padding-right: 10px;
+}
 #lot_menu div.menu:nth-child(odd){
     padding-top:20px;
-    padding-bottom: 20px;
+    padding-bottom: 18px;
 }
 #lot_menu div.menu:nth-child(even){
     padding-top:10px;
