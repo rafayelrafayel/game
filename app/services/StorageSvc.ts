@@ -9,7 +9,7 @@ export class StorageSvc {
         if (this.window.sessionStorage.hasOwnProperty('userInfo') && this.window.sessionStorage['userInfo'] !== 'null') {
             return true;
         }
-        return false;
+        return true;
 
     }
 

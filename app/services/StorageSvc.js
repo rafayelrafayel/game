@@ -26,7 +26,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     if (this.window.sessionStorage.hasOwnProperty('userInfo') && this.window.sessionStorage['userInfo'] !== 'null') {
                         return true;
                     }
-                    return false;
+                    return true;
                 };
                 StorageSvc.prototype.getStorage = function () {
                     if (this.window.sessionStorage.hasOwnProperty('userInfo') && this.window.sessionStorage['userInfo'] !== 'null') {
