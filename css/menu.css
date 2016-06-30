@@ -26,12 +26,12 @@ header {
 .header-container > .header-right div.balance {
     margin-right: 20px;
     width: 140px;
-    background: url('/images/icon-1.png') no-repeat 0 50%;
+    background: url('../images/icon-1.png') no-repeat 0 50%;
 }
 .header-container > .header-right div.tot-money {
     width: 240px;
     text-align: center;
-    background: url('/images/icon-2.png') no-repeat 0 50%;
+    background: url('../images/icon-2.png') no-repeat 0 50%;
     border-right: 1px solid #4c495a;
 }
 .header-container > .header-right div.avatar {
@@ -155,7 +155,7 @@ div.profil-details > .nav > li > a:focus {
     background-position: -5px -37px;
     display: block;
     background-repeat: no-repeat;
-    background-image: url('/images/icon-deposit.png');
+    background-image: url('../images/icon-deposit.png');
 }
 #deposit > a > span, #withdraw > a > span {
     color: rgba(255, 255, 255, 0.3);
@@ -194,7 +194,7 @@ div.profil-details > .nav > li > a:focus {
     display: block;
     background-repeat: no-repeat;
     background-position: -5px -40px;
-    background-image: url('/images/icon-withdraw.png');
+    background-image: url('../images/icon-withdraw.png');
 }
 #withdraw > a:focus > i {
     background-position: -5px -5px;

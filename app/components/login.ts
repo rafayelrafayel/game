@@ -3,7 +3,7 @@ import { StorageSvc } from '../../app/services/StorageSvc';
 
 @Component({
     selector: 'login-selector',
-    templateUrl: '../../app/views/index/login.html',
+    templateUrl: 'app/views/index/login.html',
     providers:[StorageSvc]
 })
 export class LoginComponent implements OnInit {

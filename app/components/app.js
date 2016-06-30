@@ -46,7 +46,7 @@ System.register(['@angular/core', '@angular/router', '../../app/services/HeroSvc
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        templateUrl: '../../app/views/index/index.html',
+                        templateUrl: 'app/views/index/index.html',
                         directives: [router_1.ROUTER_DIRECTIVES],
                         providers: [HeroSvc_1.HeroService, StorageSvc_1.StorageSvc]
                     }), 

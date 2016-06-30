@@ -13,7 +13,7 @@ import { AuthGuard } from  '../../app/helpers/route-guard';
 
 @Component({
     selector: 'my-app',
-    templateUrl:'../../app/views/index/index.html',
+    templateUrl:'app/views/index/index.html',
     directives: [ROUTER_DIRECTIVES],
     providers: [HeroService,StorageSvc]
 })

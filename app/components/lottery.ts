@@ -4,7 +4,7 @@ import { AuthGuard } from  '../../app/helpers/route-guard';
 
 @Component({
     selector: 'lottery-selector',
-    templateUrl: '../../app/views/lottery/index.html',
+    templateUrl: 'app/views/lottery/index.html',
    // providers: [AuthGuard]
    
 })

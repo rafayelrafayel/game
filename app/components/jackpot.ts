@@ -8,7 +8,7 @@ declare var jQuery: any;
 
 @Component({
     selector: 'jackpot-selector',
-    templateUrl: '../../app/views/jackpot/index.html',
+    templateUrl: 'app/views/jackpot/index.html',
     providers: [JackpotSvc]
 })
 export class JackpotComponent implements OnInit {

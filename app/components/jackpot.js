@@ -124,7 +124,7 @@ System.register(['@angular/core', '../../app/services/JackpotSvc'], function(exp
                 JackpotComponent = __decorate([
                     core_1.Component({
                         selector: 'jackpot-selector',
-                        templateUrl: '../../app/views/jackpot/index.html',
+                        templateUrl: 'app/views/jackpot/index.html',
                         providers: [JackpotSvc_1.JackpotSvc]
                     }), 
                     __metadata('design:paramtypes', [JackpotSvc_1.JackpotSvc])

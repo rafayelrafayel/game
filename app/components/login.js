@@ -31,7 +31,7 @@ System.register(['@angular/core', '../../app/services/StorageSvc'], function(exp
                 LoginComponent = __decorate([
                     core_1.Component({
                         selector: 'login-selector',
-                        templateUrl: '../../app/views/index/login.html',
+                        templateUrl: 'app/views/index/login.html',
                         providers: [StorageSvc_1.StorageSvc]
                     }), 
                     __metadata('design:paramtypes', [StorageSvc_1.StorageSvc])
