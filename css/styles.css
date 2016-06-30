@@ -14,5 +14,5 @@ body {
 #main {
     width: calc(100% - 250px);
     float: right;
-    padding-top: 60px;
+    /*padding-top: 60px;*/
 }

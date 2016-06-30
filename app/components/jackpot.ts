@@ -1,14 +1,90 @@
 import { Component, Input, OnInit } from '@angular/core';
+import {jackpotUserInterface, jackpotInfoInterface, jackpotStakesInterface } from '../../app/classes/jackpotUserInterface';
 
-import { AuthGuard } from  '../../app/helpers/route-guard';
+import {JackpotSvc} from '../../app/services/JackpotSvc';
+
+
 declare var jQuery: any;
 
 @Component({
     selector: 'jackpot-selector',
-    templateUrl: '../../app/views/jackpot/index.html'
+    templateUrl: '../../app/views/jackpot/index.html',
+    providers: [JackpotSvc]
 })
 export class JackpotComponent implements OnInit {
+
+    private users: any;
+    private prevActions: Object;
+    private winnerInfo: jackpotUserInterface = {
+        id: 0,
+        name: '',
+        cost: 0,
+        currency: ''
+    };
+
+    private jackpotInfo: jackpotInfoInterface = {
+        fee: 0,
+        entries: 0,
+        total: 0,
+        currency: ''
+    }
+
+
+    private lowStakeInfo: jackpotStakesInterface = {
+        name: '',
+        current_pot: 0,
+        more_to_go: 0,
+        currency: ''
+    }
+
+    private highStakeInfo: jackpotStakesInterface = {
+        name: '',
+        current_pot: 0,
+        more_to_go: 0,
+        currency: ''
+    }
+
+    constructor(private Jackpot: JackpotSvc) { }
+
+
+    public getUsers(): Promise<jackpotUserInterface[]> {
+        return this.Jackpot.getJackpotUsers().then(
+            users => this.users = users
+        );
+    }
+
+    public getPreviousAction(): Promise<jackpotUserInterface[]> {
+        return this.Jackpot.getPreviousAction().then(
+            prevActions => this.prevActions = prevActions
+        );
+    }
+
+    public getWinnerInfo(): Promise<jackpotUserInterface[]> {
+        return this.Jackpot.getWinnerInfo().then(winner => this.winnerInfo = winner['0']);
+    }
+
+    public getJackpotInfo(): Promise<jackpotInfoInterface> {
+        return this.Jackpot.getjackPotInfo().then(data => this.jackpotInfo = data);
+    }
+    
+    public getLowStakeInfo(): Promise<jackpotStakesInterface> {
+        return this.Jackpot.getLowStakeInfo().then(data => this.lowStakeInfo = data);
+    }
+    
+     public getHighStakeInfo(): Promise<jackpotStakesInterface> {
+         return this.Jackpot.getHighStakeInfo().then(data => this.highStakeInfo = data);
+    }
+
     ngOnInit() {
+
+        this.getUsers();
+        this.getPreviousAction();
+        this.getWinnerInfo();
+        this.getJackpotInfo();
+        this.getLowStakeInfo();
+        this.getHighStakeInfo();
+
+
         jQuery(document).ready(function() {
             (function($) {
                 var h = $("div.select-winner").height();

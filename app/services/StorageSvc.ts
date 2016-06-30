@@ -20,6 +20,11 @@ export class StorageSvc {
         }
         return {};
     }
+
+    public removeStorage(): boolean {
+        this.window.sessionStorage['userInfo'] = null;
+        return true;
+    }
     public getProperty(name, from): any {
         var name = name || null,
             from = from || null;

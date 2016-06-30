@@ -1,4 +1,4 @@
-System.register(['@angular/core'], function(exports_1, context_1) {
+System.register(['@angular/core', '../../app/services/JackpotSvc'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,18 +10,76 @@ System.register(['@angular/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, JackpotSvc_1;
     var JackpotComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (JackpotSvc_1_1) {
+                JackpotSvc_1 = JackpotSvc_1_1;
             }],
         execute: function() {
             JackpotComponent = (function () {
-                function JackpotComponent() {
+                function JackpotComponent(Jackpot) {
+                    this.Jackpot = Jackpot;
+                    this.winnerInfo = {
+                        id: 0,
+                        name: '',
+                        cost: 0,
+                        currency: ''
+                    };
+                    this.jackpotInfo = {
+                        fee: 0,
+                        entries: 0,
+                        total: 0,
+                        currency: ''
+                    };
+                    this.lowStakeInfo = {
+                        name: '',
+                        current_pot: 0,
+                        more_to_go: 0,
+                        currency: ''
+                    };
+                    this.highStakeInfo = {
+                        name: '',
+                        current_pot: 0,
+                        more_to_go: 0,
+                        currency: ''
+                    };
                 }
+                JackpotComponent.prototype.getUsers = function () {
+                    var _this = this;
+                    return this.Jackpot.getJackpotUsers().then(function (users) { return _this.users = users; });
+                };
+                JackpotComponent.prototype.getPreviousAction = function () {
+                    var _this = this;
+                    return this.Jackpot.getPreviousAction().then(function (prevActions) { return _this.prevActions = prevActions; });
+                };
+                JackpotComponent.prototype.getWinnerInfo = function () {
+                    var _this = this;
+                    return this.Jackpot.getWinnerInfo().then(function (winner) { return _this.winnerInfo = winner['0']; });
+                };
+                JackpotComponent.prototype.getJackpotInfo = function () {
+                    var _this = this;
+                    return this.Jackpot.getjackPotInfo().then(function (data) { return _this.jackpotInfo = data; });
+                };
+                JackpotComponent.prototype.getLowStakeInfo = function () {
+                    var _this = this;
+                    return this.Jackpot.getLowStakeInfo().then(function (data) { return _this.lowStakeInfo = data; });
+                };
+                JackpotComponent.prototype.getHighStakeInfo = function () {
+                    var _this = this;
+                    return this.Jackpot.getHighStakeInfo().then(function (data) { return _this.highStakeInfo = data; });
+                };
                 JackpotComponent.prototype.ngOnInit = function () {
+                    this.getUsers();
+                    this.getPreviousAction();
+                    this.getWinnerInfo();
+                    this.getJackpotInfo();
+                    this.getLowStakeInfo();
+                    this.getHighStakeInfo();
                     jQuery(document).ready(function () {
                         (function ($) {
                             var h = $("div.select-winner").height();
@@ -66,9 +124,10 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 JackpotComponent = __decorate([
                     core_1.Component({
                         selector: 'jackpot-selector',
-                        templateUrl: '../../app/views/jackpot/index.html'
+                        templateUrl: '../../app/views/jackpot/index.html',
+                        providers: [JackpotSvc_1.JackpotSvc]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [JackpotSvc_1.JackpotSvc])
                 ], JackpotComponent);
                 return JackpotComponent;
             }());

@@ -1,4 +1,4 @@
-System.register(['@angular/core', 'rxjs/Rx', '../../app/constants/api-url', '@angular/http', '@angular/router'], function(exports_1, context_1) {
+System.register(['@angular/core', 'rxjs/Rx', '../../app/constants/api-url', '@angular/http', '@angular/router', '../../app/services/StorageSvc'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', 'rxjs/Rx', '../../app/constants/api-url', '@an
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Rx_1, api_url_1, http_1, router_1;
+    var core_1, Rx_1, api_url_1, http_1, router_1, StorageSvc_1;
     var AuthenticationSvc;
     return {
         setters:[
@@ -28,16 +28,18 @@ System.register(['@angular/core', 'rxjs/Rx', '../../app/constants/api-url', '@an
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (StorageSvc_1_1) {
+                StorageSvc_1 = StorageSvc_1_1;
             }],
         execute: function() {
-            //import localStorage from 'localStorage';
             AuthenticationSvc = (function () {
-                function AuthenticationSvc(http, router) {
+                function AuthenticationSvc(http, router, storage) {
                     this.http = http;
                     this.router = router;
-                    // this.loggedIn = !!localStorage.getItem('auth_token');
+                    this.storage = storage;
                 }
-                AuthenticationSvc.prototype.isLoggedIn = function (requestData) {
+                AuthenticationSvc.prototype.login = function (requestData) {
                     if (requestData === void 0) { requestData = {}; }
                     var router = this.router;
                     var obs;
@@ -52,22 +54,17 @@ System.register(['@angular/core', 'rxjs/Rx', '../../app/constants/api-url', '@an
                         obs = Rx_1.Observable.of(false);
                     }
                     return obs
-                        .map(function (success) {
-                        // navigate to login page
-                        if (!success)
-                            router.navigate(['/auth/login']);
-                        return success;
-                    });
+                        .map(this.success);
                 };
                 AuthenticationSvc.prototype.logout = function () {
-                    //  localStorage.removeItem('auth_token');
+                    this.storage.removeStorage();
                     //this.isLoggedIn = true;
                 };
                 AuthenticationSvc.prototype._isLoggedIn = function () {
                     return true;
                 };
                 AuthenticationSvc.prototype.check = function () {
-                    return Rx_1.Observable.of(this.isLoggedIn);
+                    return Rx_1.Observable.of(this.login);
                 };
                 AuthenticationSvc.prototype.success = function (res) {
                     var body = res.json();
@@ -82,7 +79,7 @@ System.register(['@angular/core', 'rxjs/Rx', '../../app/constants/api-url', '@an
                 };
                 AuthenticationSvc = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [http_1.Http, router_1.Router])
+                    __metadata('design:paramtypes', [http_1.Http, router_1.Router, StorageSvc_1.StorageSvc])
                 ], AuthenticationSvc);
                 return AuthenticationSvc;
             }());

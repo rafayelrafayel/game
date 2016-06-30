@@ -34,6 +34,10 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     }
                     return {};
                 };
+                StorageSvc.prototype.removeStorage = function () {
+                    this.window.sessionStorage['userInfo'] = null;
+                    return true;
+                };
                 StorageSvc.prototype.getProperty = function (name, from) {
                     var name = name || null, from = from || null;
                     var stoarageInfo = this.getStorage();

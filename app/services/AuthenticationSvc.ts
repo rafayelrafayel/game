@@ -4,20 +4,20 @@ import {Observable} from 'rxjs/Rx';
 import {apiUrl} from '../../app/constants/api-url';
 import { Http, Headers, Response } from '@angular/http';
 import {Router}    from '@angular/router';
-//import localStorage from 'localStorage';
+import { StorageSvc } from '../../app/services/StorageSvc';
 
 @Injectable()
 export class AuthenticationSvc {
 
 
-    constructor(private http: Http, private router: Router) {
-        // this.loggedIn = !!localStorage.getItem('auth_token');
+    constructor(private http: Http, private router: Router, private storage: StorageSvc) {
+       
     }
 
-    
 
 
-    public isLoggedIn(requestData: Object = {}): Observable<boolean> | boolean {
+
+    public login(requestData: Object = {}): Observable<boolean> | boolean {
         let router: Router = this.router;
         let obs;
         let headers = new Headers();
@@ -36,17 +36,11 @@ export class AuthenticationSvc {
         }
 
         return obs
-            .map(success => {
-                // navigate to login page
-                if (!success)
-                    router.navigate(['/auth/login']);
-
-                return success;
-            });
+            .map(this.success);
     }
 
     public logout() {
-        //  localStorage.removeItem('auth_token');
+        this.storage.removeStorage();
         //this.isLoggedIn = true;
     }
 
@@ -55,7 +49,7 @@ export class AuthenticationSvc {
     }
 
     public check() {
-        return Observable.of(this.isLoggedIn);
+        return Observable.of(this.login);
     }
 
     private success(res: Response) {
