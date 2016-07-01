@@ -1,77 +1,41 @@
 <div id="main">
 <div class="container-content" id="lot_menu">
     <div class="menu text-center col-xs-2">
-        Mistery Lottery 
+        {{misterInfo.name}}
         <i class="fa fa-question-circle-o fa-lg grey" aria-hidden="true"></i>
     </div>
     <div class="menu text-center col-xs-2">
-        Total prize:45+<br>
-        <span class="second_line">5:11:22 until it drops</span>
+        Total prize: {{misterInfo.prize}}+<br>
+        <span class="second_line">{{misterInfo.date}} until it drops</span>
     </div>
     <div class="menu text-center col-xs-2">
-        Weekly Lottery
+        {{weekInfo.name}} 
         <i class="fa fa-question-circle-o fa-lg grey" aria-hidden="true"></i>
     </div>
     <div class="menu text-center col-xs-2">
-        Total prize:700+<br>
-        <span class="second_line">5:11:22 until it drops</span>
+        Total prize: {{weekInfo.prize}} +<br>
+        <span class="second_line">{{weekInfo.date}} until it drops</span>
     </div>
     <div class="menu text-center col-xs-2">
-        Montly Lottery
+        {{monthlyInfo.name}}
         <i class="fa fa-question-circle-o fa-lg grey" aria-hidden="true"></i>
     </div>
     <div class="menu text-center col-xs-2">
-        Total prize:1.3b+<br>
-        <span class="second_line">5:11:22 until it drops</span>
+        Total prize:{{monthlyInfo.prize}}b+<br>
+        <span class="second_line">{{monthlyInfo.date}} until it drops</span>
     </div>
 </div>
 <div class="container-content" id="lot_content">
-    <div class="point_block text-center col-md-2">
-        <img src="./images/arrow.png"  alt="">                
+    <div  *ngFor="let user of users;let i=index" [ngClass]="setClasses(i)" >
+        <img src="{{user.image}}"  alt="">                
         <br>
         <br>
         <span class="user_name white">
-            Armadiy Crossbow
+           {{user.name}}
         </span>
         <br>
         <span class="orange">
-            15m
-        </span>
-    </div>
-    <div class="point_block text-center col-md-2">
-        <img src="./images/arrow.png"  alt="">                
-        <br>
-        <br>
-        <span class="user_name white">
-            Armadiy Crossbow
-        </span>
-        <br>
-        <span class="orange">
-            15m
-        </span>
-    </div>
-    <div class="point_block text-center col-md-2">
-        <img src="./images/arrow.png"  alt="">                
-        <br>
-        <br>
-        <span class="user_name white">
-            Armadiy Crossbow
-        </span>
-        <br>
-        <span class="orange">
-            15m
-        </span>
-    </div>
-    <div class="point_block text-center col-md-2">
-        <img src="./images/arrow.png"  alt="">                
-        <br>
-        <br>
-        <span class="user_name white">
-            Armadiy Crossbow
-        </span>
-        <br>
-        <span class="orange">
-            15m
+            {{user.cost}} {{user.currency}}
         </span>
     </div>
     <div id="item_more_block" class="text-center col-md-4">
@@ -94,7 +58,7 @@
         Ticket price:
     </span>
     <span class="orange">
-        150k 
+        {{lotteryInfo.ticket}}k 
     </span>
     <span class="white">
         per ticket
@@ -103,21 +67,21 @@
 <div class="container-content text-center" id="lot_footer">
     <div class="text-center col-md-3">
         <img src="./images/violet_dollar.png" alt="">
-        <span class="violet">1000</span>
+        <span class="violet">{{lotteryInfo.total_mistery}}</span>
         <span class="white">Total lottery tickets for this Mistery Lottery</span>
     </div>
     <div class="text-center col-md-3">
         <img src="./images/green_dollar.png" alt="">
-        <span class="green">1000</span>
+        <span class="green">{{lotteryInfo.ticket_avialable}}</span>
         <span class="white">lottery tickets still available </span>
     </div>
     <div class="text-center col-md-3">
         <img src="./images/orange_dollar.png" alt="">
-        <span class="orange">1000</span>
+        <span class="orange">{{lotteryInfo.ticket_owned}}</span>
         <span class="white">lottery tickets owned</span>
     </div>
     <div class="text-center col-md-3">                
-        <span class="grey">Your chance of winning 0%</span>
+        <span class="grey">Your chance of winning {{lotteryInfo.winning_balance}}%</span>
     </div>
 </div>
 </div>
