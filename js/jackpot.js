@@ -2,8 +2,8 @@ jQuery(document).ready(function () {
     (function ($) {
         var counter = 0;
         var top = "";
-        var sample = new Audio("/sounds/slot_jackpot.mp3");
-        var w = new Audio("/sounds/bell_ring.mp3");
+        var sample = new Audio("sounds/slot_jackpot.mp3");
+        var w = new Audio("sounds/bell_ring.mp3");
         function slot() {
             var duration = 100;
             $("div.select-winner").animate({
@@ -26,7 +26,7 @@ jQuery(document).ready(function () {
                         $("div.win-info span.name").text(winner.find("span.name").text());
                         $("div.winner").delay(1000).fadeIn(300, function(){
                             w.play();
-                            $("div.select-winner > div").slice(-max+1).remove();
+                            $("div.select-winner > div").slice(-max-1).remove();
                             $("div.select-winner").css('top',0);
                             $("#enter-jackpot").prop('disabled', false);
                             counter = 0;
