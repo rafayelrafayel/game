@@ -31,8 +31,8 @@ div.top i {
 }
 
 div.middle {
-    margin-top: 80px;
-    margin-bottom: 80px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     float: left;
     width: 100%;
 }
@@ -61,11 +61,11 @@ div.winner {
     display: none;
     position: absolute;
     width: 100%;
-    top: -80px;
-   height: 387px;
+    top: 0px;
+    height: 260px;
     left: 0;
     z-index: 1000;
-    background: rgba(24, 23, 27, 0.95);
+    background: rgba(24, 23, 27, 0.9);
 }
 
 .circle-winner {

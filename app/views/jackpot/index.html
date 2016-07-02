@@ -62,7 +62,7 @@
                     <p class="sub-title">Participants:</p>
                      <div class="col-xs-6" *ngFor="let user of users">
                         <img src="{{user.image}}" alt="user">
-                         <span class="user-info"  data-id="{{user.id}}">{{user.name}} entered with <p>{{user.cost}} &nbsp; {{user.currency}}</p></span>
+                        <span class="user-info"  data-id="{{user.id}}"><span class="name">{{user.name}}</span> entered with <p>{{user.cost}} &nbsp; {{user.currency}}</p></span>
                     </div>
                 </div>
             </div>
