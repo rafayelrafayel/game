@@ -12,7 +12,7 @@ export interface lotteryInfoInterface {
     ticket_avialable: number,
     ticket_owned: number,
     winning_balance: number,
-    ticket:number
+    ticket:number  
 }
 
 export interface lotteriesInterface {
