@@ -1,0 +1,31 @@
+<div id="main">
+    <div class="top container">
+        <div class="case">
+            <img class="open" src="./images/top.png" alt="">
+            <img class="sine" src="./images/shine.png" alt="">
+            <img src="./images/bottom.png" alt="">
+        </div>
+        <div class="open-tresure">
+            <p>The Treasure Chest can be opened for another <span class="text-primary">{{treasureInfo.open_price}}</span> times this month</p>
+            <button class="btn" id="open-chest">Open treasure chest</button>
+            <p>Opening Price: <span span class="text-danger">{{treasureInfo.open_count}}{{treasureInfo.currency}}</span> <span>Per opening</span></p>
+        </div>
+    </div>
+    <div class="center container">
+        <div class="top-block row">
+            <p>Items that can still be optained:</p>
+            <div class="items-optained">
+                <div class="circle-big col-xs-2" *ngFor = "let each of stillOptained">
+                    <img src="./images/arrow.png" alt="">
+                </div>
+            </div>
+            <div class="transparent"><i class="fa fa-angle-right"></i></div>
+        </div>
+        <div class="bottom-block row">
+            <p>Items that are already optained:</p>
+            <div class="circle-small col-xs-2" *ngFor = "let each of alreadyOptained">
+                <img src="./images/arrow.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div id="main">
+    <img id="arrow" src="./images/arrow_big.png" alt="arrow" style="display:none">
+    <canvas id="canvas" width="800" height="800"></canvas>	
+    <div class="container" id="spin_info">
+        <img src="./images/violet_dollar.png" alt="">
+        <span class="violet">Spin price: {{spinInfo.price}}{{spinInfo.currency}}</span>
+        <br>
+        <img src="./images/green_dollar.png" alt="">
+        <span class="green">Max winning amount:{{spinInfo.maxAmount}} {{spinInfo.currency}}</span>
+        <br>
+        <span class="grey">You can spin <span class="orange">{{spinInfo.count}} times</span> with your current balace</span>
+    </div>
+    <div id="win_modal" class="modal fade" role="dialog">
+        <div class="modal-dialog" role="document">                
+            <div class="modal-content text-center">
+                <span class="win_text">You have obtained:</span>
+                <br>
+                <br>
+                <div class="arrow_circle">
+                    <img src="./images/arrow.png" alt="">
+                </div>
+                <br>
+                <br>
+                <span class="white">{{winnerInfo.name}}</span>
+                <br>
+                <span class="orange">Congralutations</span>
+            </div>
+        </div>
+    </div>
+</div>
