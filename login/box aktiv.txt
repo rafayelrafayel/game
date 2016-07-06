@@ -1,0 +1,15 @@
+.Base {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(75, 73, 83);
+  border-radius: 5px;
+  background-image: -moz-linear-gradient( 90deg, rgb(63,60,74) 0%, rgb(54,52,60) 100%);
+  background-image: -webkit-linear-gradient( 90deg, rgb(63,60,74) 0%, rgb(54,52,60) 100%);
+  background-image: -ms-linear-gradient( 90deg, rgb(63,60,74) 0%, rgb(54,52,60) 100%);
+  position: absolute;
+  left: 700px;
+  top: 371px;
+  width: 197px;
+  height: 37px;
+  z-index: 621;
+}
