@@ -3,6 +3,10 @@
         $("#open-chest").click(function () {
             stopAnimation("img.open");
             $("img.sine").addClass("show");
+            setTimeout(function() {
+                $("img.sine").removeClass("show");
+                $("img.open").removeAttr("style");
+            }, 2000);
         });
     });
     function stopAnimation(element) {

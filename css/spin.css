@@ -28,9 +28,15 @@ hr {
 #spin_info{
     margin-top:20px;
     margin-bottom:20px;
+    position: absolute;
+    margin-left: 90px;
+    bottom: 0;
 }
 #win_modal{
     background: rgba(0,0,0,0.65);
+    width: calc(100% - 250px);
+    right: 0!important;
+    left: auto!important;
 }
 .win_text{
     font-size:30px;
