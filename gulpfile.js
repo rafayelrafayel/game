@@ -24,7 +24,7 @@ gulp.task('ts', function () {
 });
 
 /** then bundle */
-gulp.task('bundle', function () {
+gulp.task('bundle', ['ts'],function () {
     // optional constructor options
     // sets the baseURL and loads the configuration file
     var builder = new Builder('', 'systemjs.config.js');
@@ -77,5 +77,5 @@ gulp.task('minify-js', function() {
 
 
 /** this runs the above in order. uses gulp4 */
-gulp.task('build', [/*'ts',*/'bundle']);//gulp.series(['ts', 'bundle']), 'bundle'
-gulp.task('default', ['minify-js']);//gulp.task('build')
+gulp.task('build', ['ts','bundle']);//gulp.series(['ts', 'bundle']), 'bundle'
+gulp.task('default', ['build']);//gulp.task('build')

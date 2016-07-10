@@ -6,6 +6,8 @@ import { AuthGuard } from  './helpers/route-guard';
 import { StorageSvc } from './services/StorageSvc';
 import { HTTP_BINDINGS, HTTP_PROVIDERS  } from '@angular/http';
 import { provide } from '@angular/core';  
+import {enableProdMode} from '@angular/core';
+enableProdMode();
 
 bootstrap(AppComponent, [
   APP_ROUTER_PROVIDERS,AuthGuard,StorageSvc,HTTP_BINDINGS,provide(Window, {useValue: window})
