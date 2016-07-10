@@ -74,6 +74,17 @@ System.register(['@angular/core', '../../app/services/LotterySvc'], function(exp
                     var _this = this;
                     return this.Lottery.getMonthInfo().then(function (data) { return _this.monthlyInfo = data; });
                 };
+                LotteryComponent.prototype.showMore = function (event) {
+                    (function ($) {
+                        var parent = $(event.target).closest('#lot_content');
+                        parent.children().each(function () {
+                            if ($(this).hasClass('hidden')) {
+                                $(this).removeClass('hidden');
+                            }
+                            $(event.target).addClass('hidden');
+                        });
+                    })(jQuery);
+                };
                 LotteryComponent.prototype.setClasses = function (i) {
                     if (i >= 5) {
                         return "point_block text-center col-md-2 hidden";

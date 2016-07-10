@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {Hero} from '../../app/classes/hero.ts';
+
 import {lotteryUserInterface, lotteryInfoInterface, lotteriesInterface } from '../../app/classes/lotteryInterface';
 
 import {LotterySvc} from '../../app/services/LotterySvc';
+declare var jQuery: any;
 
 @Component({
     selector: 'lottery-selector',
@@ -81,6 +82,21 @@ export class LotteryComponent implements OnInit {
         );
     }
 
+   
+    public showMore(event){
+        (function($){
+            var parent = $(event.target).closest('#lot_content');
+            parent.children().each(function(){
+                if($(this).hasClass('hidden')){
+                    $(this).removeClass('hidden');
+                }
+                $(event.target).addClass('hidden')
+            })
+             
+        })(jQuery);
+        
+    }
+    
 
     public setClasses(i): string {
         if (i >= 5) {

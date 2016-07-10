@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', '../../app/services/HeroSvc', '../../app/services/StorageSvc'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../../app/services/StorageSvc', '../../app/services/ProfileSvc'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', '../../app/services/HeroSvc
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, HeroSvc_1, StorageSvc_1;
+    var core_1, router_1, StorageSvc_1, ProfileSvc_1;
     var AppComponent;
     return {
         setters:[
@@ -20,37 +20,39 @@ System.register(['@angular/core', '@angular/router', '../../app/services/HeroSvc
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (HeroSvc_1_1) {
-                HeroSvc_1 = HeroSvc_1_1;
-            },
             function (StorageSvc_1_1) {
                 StorageSvc_1 = StorageSvc_1_1;
+            },
+            function (ProfileSvc_1_1) {
+                ProfileSvc_1 = ProfileSvc_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
-                function AppComponent(heroService, storage) {
-                    this.heroService = heroService;
+                function AppComponent(profile, storage) {
+                    this.profile = profile;
                     this.storage = storage;
                     this.loggedIn = true;
-                    this.title = 'Tour oof Heroes';
+                    this.profileInfo = {
+                        balance: '',
+                        totalpayed: '',
+                    };
                 }
-                AppComponent.prototype.getHeroes = function () {
+                AppComponent.prototype.getProfileInfo = function () {
                     var _this = this;
-                    this.heroService.getHeroesSlowly().then(function (heroes) { return _this.heroes = heroes; });
+                    return this.profile.getProfileInfo().then(function (data) { return _this.profileInfo = data; });
                 };
                 AppComponent.prototype.ngOnInit = function () {
                     this.loggedIn = this.storage.isNotEmpty();
-                    this.getHeroes();
+                    this.getProfileInfo();
                 };
-                AppComponent.prototype.onSelect = function (hero) { this.selectedHero = hero; };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
                         templateUrl: 'app/views/index/index.html',
                         directives: [router_1.ROUTER_DIRECTIVES],
-                        providers: [HeroSvc_1.HeroService, StorageSvc_1.StorageSvc]
+                        providers: [ProfileSvc_1.ProfileSvc, StorageSvc_1.StorageSvc]
                     }), 
-                    __metadata('design:paramtypes', [HeroSvc_1.HeroService, StorageSvc_1.StorageSvc])
+                    __metadata('design:paramtypes', [ProfileSvc_1.ProfileSvc, StorageSvc_1.StorageSvc])
                 ], AppComponent);
                 return AppComponent;
             }());

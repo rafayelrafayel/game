@@ -1,36 +1,45 @@
 import { Component, OnInit } from '@angular/core';
 import {ROUTER_DIRECTIVES} from '@angular/router';
 
-import {HeroDetailComponent} from './detail';
-
-import {Hero} from '../../app/classes/hero.ts';
+import {profileInterface } from '../../app/classes/profileInterface';
 
 
-import { HeroService } from  '../../app/services/HeroSvc';
+
+
+
 import { StorageSvc } from '../../app/services/StorageSvc';
-import { AuthGuard } from  '../../app/helpers/route-guard';
+import { ProfileSvc } from '../../app/services/ProfileSvc';
+
 
 
 @Component({
     selector: 'my-app',
-    templateUrl:'app/views/index/index.html',
+    templateUrl: 'app/views/index/index.html',
     directives: [ROUTER_DIRECTIVES],
-    providers: [HeroService,StorageSvc]
+    providers: [ProfileSvc, StorageSvc]
 })
 export class AppComponent implements OnInit {
     public loggedIn = true;
-    title = 'Tour oof Heroes';
-    heroes: Hero[];
-    selectedHero: Hero;
-    constructor(private heroService: HeroService,private storage: StorageSvc) { }
-    getHeroes() {
-        this.heroService.getHeroesSlowly().then(heroes => this.heroes = heroes);
+    private profileInfo: profileInterface = {
+        balance: '',
+        totalpayed: '',
     }
+
+
+
+    constructor(private profile: ProfileSvc, private storage: StorageSvc) { }
+
+    public getProfileInfo(): Promise<profileInterface> {
+        return this.profile.getProfileInfo().then(
+            data => this.profileInfo = data
+        );
+    }
+
     ngOnInit() {
         this.loggedIn = this.storage.isNotEmpty();
-        this.getHeroes();
+        this.getProfileInfo();
     }
-    onSelect(hero: Hero) { this.selectedHero = hero; }
+
 }
 
 
