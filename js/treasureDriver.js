@@ -1,13 +1,14 @@
 (function ($) {
     $(document).ready(function () {
         $("#open-chest").click(function () {
+            $("#win_modal").modal('show');
             stopAnimation("img.open");
             $("img.sine").addClass("show");
-            setTimeout(function() {
-                $("img.sine").removeClass("show");
-                $("img.open").removeAttr("style");
-            }, 2000);
         });
+    });
+    $('#win_modal').on('hidden.bs.modal', function (e) {
+        $("img.sine").removeClass("show");
+        $("img.open").removeAttr("style");
     });
     function stopAnimation(element) {
         $(element).css("-webkit-animation", "none");

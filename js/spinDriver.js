@@ -12,6 +12,9 @@
             selected: function (key, value) {
                 //alert('SELECTED : ' + key + ' => ' + value);
                 $("#win_modal").modal('show');
+                var tada = new Audio("sounds/tada.wav");
+                tada.currentTime = 0;
+                tada.play();
             },
             spinText: 'You can spin 500 times with Your current balance'
         });

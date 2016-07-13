@@ -85,10 +85,13 @@ $.widget('javobyte.rouletteWheel', {
             this._options.innerRadius = base * 0.5 / 2; // little center spin
             this._options.textRadius = (this._options.radius + this._options.innerRadius) / 2;
             this._options.arc = 2 * Math.PI / this._options.itemsToDraw;
+            sample = new Audio("sounds/spin.mp3");
+
 
             var widget = this;
             this.element.click(function (e) {
-
+                sample.currentTime = 0;
+                sample.play();
                 var x;
                 var y;
                 if (e.pageX || e.pageY) {
@@ -267,6 +270,7 @@ $.widget('javobyte.rouletteWheel', {
         this._options.spinTime += 30;
         if (this._options.spinTime >= this._options.spinTimeTotal) {
             this.stop();
+            sample.pause();
             return;
         }        
         var spinAngle = this._options.spinAngleStart - easeOut(this._options.spinTime, 0, this._options.spinAngleStart, this._options.spinTimeTotal);
